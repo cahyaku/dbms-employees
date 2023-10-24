@@ -9,7 +9,7 @@ SELECT e.emp_no                                 AS ID,
        de.from_date                             AS 'Assigned From',
        de.to_date                               AS 'Assigned to',
        concat(em.first_name, ' ', em.last_name) AS Manager,
-       s.salary                                 AS salary
+       s.salary                                 AS Salary
 
 FROM employees e
          INNER JOIN titles t ON e.emp_no = t.emp_no
