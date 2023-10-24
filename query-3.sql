@@ -9,9 +9,8 @@ SELECT e.emp_no                               AS ID,
 FROM employees e
          INNER JOIN titles t on e.emp_no = t.emp_no
 
-# WHERE t.to_date >= 9999 - 01 - 01;
-
-ORDER BY e.hire_date ASC;
+WHERE t.to_date >= curdate()
+ORDER BY ID;
 
 
 
