@@ -18,10 +18,8 @@ FROM employees e
                FROM titles
                GROUP BY emp_no) last_title ON last_title.emp_no = e.emp_no
          JOIN titles t ON t.emp_no = e.emp_no AND t.to_date = last_title.titles_max_to_date
-
          JOIN dept_emp de ON e.emp_no = de.emp_no AND de.to_date = last_title.titles_max_to_date
 
-#          JOIN dept_emp de ON e.emp_no = de.emp_no
          JOIN departments d ON de.dept_no = d.dept_no
 
          JOIN (SELECT dept_no,
@@ -35,5 +33,4 @@ FROM employees e
                       max(salaries.to_date) AS sallary_max_to_date
                FROM salaries
                GROUP BY emp_no) last_sallary ON last_sallary.emp_no = e.emp_no
-         JOIN salaries s ON s.emp_no = e.emp_no AND s.to_date = last_sallary.sallary_max_to_date
-;
+         JOIN salaries s ON s.emp_no = e.emp_no AND s.to_date = last_sallary.sallary_max_to_date;
